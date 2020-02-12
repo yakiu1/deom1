@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
 
   // 宣告事件給父元件註冊
   @Output()
-  LogoClick = new EventEmitter<string>();
+  logoClick = new EventEmitter<string>();
 
   tittle = 'What Is This!?';
   fontSize = 15;
@@ -26,14 +26,14 @@ export class HeaderComponent implements OnInit {
   // #region 事件
 
   // 某件事執行
-  OnSomeThingDoing(eventName: MouseEvent) {
+  onSomeThingDoing(eventName: MouseEvent) {
     try {
       if (eventName.altKey) {
         this.subTittle = 'This is Image';
       } else {
         this.subTittle = 'What Is This!?';
       }
-      this.LogoClick.emit(this.tittle);
+      this.logoClick.emit(this.tittle);
     } catch {
 
 
@@ -41,7 +41,7 @@ export class HeaderComponent implements OnInit {
 
   }
 
-  ChangeSize(evt: WheelEvent) {
+  changeSize(evt: WheelEvent) {
     console.log(evt);
 
     if (evt.deltaY > 0) {

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { BlogData } from '../app.interface';
 
 @Component({
   selector: 'app-article',
@@ -10,7 +11,7 @@ export class ArticleComponent implements OnInit {
   constructor() { }
 
   @Input()
-  item;
+  item : BlogData;
   @Input()
   index;
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { BlogData } from './app.interface';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent implements OnInit {
   title = 'deom1';
-  data: any;
+  data: BlogData[];
 
   constructor(private http: HttpClient) {
 
@@ -21,11 +22,12 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.http.get('http://localhost:4200/api/articles.json').subscribe((value) => {
+    this.http.get<BlogData[]>('http://localhost:4200/api/articles.json').subscribe((value) => {
 
       this.data = value;
 
-    })
+    });
+
 
   }
 
@@ -33,4 +35,9 @@ export class AppComponent implements OnInit {
   headerClickLogo(str: string) {
     this.title = str;
   }
+
+
+
 }
+
+
