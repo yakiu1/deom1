@@ -28,4 +28,9 @@ export class AppComponent implements OnInit {
     })
 
   }
+
+
+  headerClickLogo(str: string) {
+    this.title = str;
+  }
 }
